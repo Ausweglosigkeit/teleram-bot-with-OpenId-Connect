@@ -1,17 +1,27 @@
 package com.ausweglosigkeit.command.commands;
 
 
-import com.ausweglosigkeit.command.UserInfo;
+import com.ausweglosigkeit.button.ButtonAuthorizeYandex;
+import com.ausweglosigkeit.command.InformationAboutOfUser;
+import com.ausweglosigkeit.oidc.RegistrationData;
 import com.ausweglosigkeit.service.SendBotMessageService;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
+import java.util.ResourceBundle;
 
 import static com.ausweglosigkeit.command.commands.CommandName.START;
 
 
-public class StartCommand extends UserInfo implements Command {
+public class StartCommand extends InformationAboutOfUser implements Command {
     private final SendBotMessageService sendBotMessageService;
+    private static final ResourceBundle BOT_DATA = ResourceBundle.getBundle("com.ausweglosigkeit.oidc.RegistrationData");
+    private static final String clientID = BOT_DATA.getString("oidc.yandex.client.id");
+    private static final String URI_AUTHORIZE = BOT_DATA.getString("oidc.yandex.uri.authorize");
+    public static ButtonAuthorizeYandex button = new ButtonAuthorizeYandex(URI_AUTHORIZE + clientID);
 
-    public static final String START_MESSAGE = "Здравствуйте, %s.\nЧтобы продолжить взаимодействие с ботом авторизуйтесь, перейдя по ссылке: ....";
+    public static final String START_MESSAGE =
+            "Здравствуйте.\nЧтобы продолжить взаимодействие с ботом авторизуйтесь, перейдя по ссылке";
     public static final String START_HELP = String.format("%s - начать работу", START.getCommandName());
 
     public StartCommand(SendBotMessageService sendBotMessageService) {
@@ -20,14 +30,10 @@ public class StartCommand extends UserInfo implements Command {
 
     @Override
     public void execute(Update update) {
-        String firstName = getFirstName(update);
-        String lastName = getLastName(update);
+        SendMessage sendMessage = new SendMessage();
+        button.attachKeyboard(sendMessage);
 
-        if (lastName == null) {
-            sendBotMessageService.sendMessage(getStringChatId(update), String.format(START_MESSAGE, firstName));
-        } else {
-            String userName = firstName + " " + lastName;
-            sendBotMessageService.sendMessage(getStringChatId(update), String.format(START_MESSAGE, userName));
-        }
+        sendBotMessageService.sendMessageWithInlineButton(sendMessage, getStringChatId(update), START_MESSAGE);
+        button.detachKeyboard(sendMessage);
     }
 }

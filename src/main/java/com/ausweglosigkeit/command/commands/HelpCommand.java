@@ -1,6 +1,6 @@
 package com.ausweglosigkeit.command.commands;
 
-import com.ausweglosigkeit.command.UserInfo;
+import com.ausweglosigkeit.command.InformationAboutOfUser;
 import com.ausweglosigkeit.command.container.HelpForAllCommandContainer;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -8,7 +8,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HelpCommand extends UserInfo implements Command {
+public class HelpCommand extends InformationAboutOfUser implements Command {
     private final SendBotMessageService sendBotMessageService;
     private static final String HELP_REGEX = "^(/help *) (/[a-z]+) *$";
     private static final HelpForAllCommandContainer HELP_FOR_ALL_COMMAND_CONTAINER = new HelpForAllCommandContainer();

@@ -18,6 +18,17 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.enableHtml(true);
+        sendMessage.setParseMode("HTML");
+        sendMessage.setText(message);
+
+        execution(sendMessage);
+    }
+
+    @Override
+    public void sendMessageWithInlineButton(SendMessage sendMessage, String chatId, String message) {
+
+        sendMessage.setChatId(chatId);
+        sendMessage.enableHtml(true);
         sendMessage.setText(message);
 
         execution(sendMessage);

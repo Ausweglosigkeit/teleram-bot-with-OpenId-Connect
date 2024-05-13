@@ -1,14 +1,14 @@
-README.md
 target/
 test/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 .mvn
+### files ###
 mvnw
 mvnw.cmd
 application.properties
-
+RegistrationData.java
 
 ### STS ###
 .apt_generated
@@ -24,14 +24,3 @@ application.properties
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-

@@ -3,7 +3,7 @@ package com.ausweglosigkeit.command;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public abstract class UserInfo {
+public abstract class InformationAboutOfUser {
     protected int getMessageId(Update update) {
         return update.getCallbackQuery().getMessage().getMessageId();
     }

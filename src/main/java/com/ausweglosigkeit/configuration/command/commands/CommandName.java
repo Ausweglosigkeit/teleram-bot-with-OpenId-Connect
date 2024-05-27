@@ -1,11 +1,10 @@
-package com.ausweglosigkeit.command.commands;
+package com.ausweglosigkeit.configuration.command.commands;
 
 public enum CommandName {
     START("/start"),
     HELP("/help"),
     NO("/nocommand"),
-    DOWNLOAD("/download"),
-    UNAUTHORIZED("неавторизованный пользователь");
+    DOWNLOAD("/download");
 
     private final String commandName;
 

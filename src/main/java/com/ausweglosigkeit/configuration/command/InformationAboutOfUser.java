@@ -1,4 +1,4 @@
-package com.ausweglosigkeit.command;
+package com.ausweglosigkeit.configuration.command;
 
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Update;

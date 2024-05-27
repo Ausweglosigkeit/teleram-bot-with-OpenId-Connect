@@ -1,15 +1,13 @@
-package com.ausweglosigkeit.command.commands;
+package com.ausweglosigkeit.configuration.command.commands;
 
 
 import com.ausweglosigkeit.button.ButtonAuthorizeYandex;
-import com.ausweglosigkeit.command.InformationAboutOfUser;
+import com.ausweglosigkeit.configuration.command.InformationAboutOfUser;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.ResourceBundle;
-
-import static com.ausweglosigkeit.command.commands.CommandName.START;
 
 
 public class StartCommand extends InformationAboutOfUser implements Command {
@@ -21,7 +19,7 @@ public class StartCommand extends InformationAboutOfUser implements Command {
 
     public static final String START_MESSAGE =
             "Здравствуйте.\nЧтобы продолжить взаимодействие с ботом авторизуйтесь, перейдя по ссылке";
-    public static final String START_HELP = String.format("%s - начать работу", START.getCommandName());
+    public static final String START_HELP = String.format("%s - начать работу", CommandName.START.getCommandName());
 
     public StartCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

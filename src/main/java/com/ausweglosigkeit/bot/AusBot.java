@@ -1,7 +1,7 @@
 package com.ausweglosigkeit.bot;
 
-import com.ausweglosigkeit.command.container.CommandContainer;
-import com.ausweglosigkeit.command.container.LastCommandContainer;
+import com.ausweglosigkeit.configuration.command.container.CommandContainer;
+import com.ausweglosigkeit.configuration.command.container.LastCommandContainer;
 import com.ausweglosigkeit.service.impl.SendBotMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

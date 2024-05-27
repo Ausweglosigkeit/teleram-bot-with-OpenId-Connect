@@ -1,14 +1,17 @@
-package com.ausweglosigkeit.command.container;
+package com.ausweglosigkeit.configuration.command.container;
 
-import com.ausweglosigkeit.command.commands.*;
+import com.ausweglosigkeit.configuration.command.commands.Command;
+import com.ausweglosigkeit.configuration.command.commands.DownloadVideo;
+import com.ausweglosigkeit.configuration.command.commands.NoCommand;
+import com.ausweglosigkeit.configuration.command.commands.UserAuthorization;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import com.google.common.collect.ImmutableMap;
 
-import static com.ausweglosigkeit.command.commands.CommandName.*;
+import static com.ausweglosigkeit.configuration.command.commands.CommandName.*;
 
 public class LastCommandContainer {
-    private Command noCommand;
-    private ImmutableMap<String, Command> lastCommandMap;
+    private final Command noCommand;
+    private final ImmutableMap<String, Command> lastCommandMap;
 
     public LastCommandContainer(SendBotMessageService sendBotMessageService) {
         lastCommandMap = ImmutableMap.<String, Command>builder()

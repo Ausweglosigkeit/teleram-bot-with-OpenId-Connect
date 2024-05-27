@@ -1,7 +1,7 @@
-package com.ausweglosigkeit.command.commands;
+package com.ausweglosigkeit.configuration.command.commands;
 
-import com.ausweglosigkeit.command.InformationAboutOfUser;
-import com.ausweglosigkeit.command.container.HelpForAllCommandContainer;
+import com.ausweglosigkeit.configuration.command.InformationAboutOfUser;
+import com.ausweglosigkeit.configuration.command.container.HelpForAllCommandContainer;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 

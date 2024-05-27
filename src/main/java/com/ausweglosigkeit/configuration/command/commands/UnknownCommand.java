@@ -1,11 +1,11 @@
-package com.ausweglosigkeit.command.commands;
+package com.ausweglosigkeit.configuration.command.commands;
 
 
-import com.ausweglosigkeit.command.InformationAboutOfUser;
+import com.ausweglosigkeit.configuration.command.InformationAboutOfUser;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import static com.ausweglosigkeit.command.commands.CommandName.HELP;
+import static com.ausweglosigkeit.configuration.command.commands.CommandName.HELP;
 
 public class UnknownCommand extends InformationAboutOfUser implements Command{
     private final SendBotMessageService sendBotMessageService;

@@ -1,10 +1,10 @@
-package com.ausweglosigkeit.command.container;
+package com.ausweglosigkeit.configuration.command.container;
 
-import com.ausweglosigkeit.command.commands.*;
+import com.ausweglosigkeit.configuration.command.commands.*;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import com.google.common.collect.ImmutableMap;
 
-import static com.ausweglosigkeit.command.commands.CommandName.*;
+import static com.ausweglosigkeit.configuration.command.commands.CommandName.*;
 
 public class CommandContainer {
     private final Command unknownCommand;

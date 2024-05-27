@@ -13,6 +13,7 @@ public class LastCommandContainer {
     public LastCommandContainer(SendBotMessageService sendBotMessageService) {
         lastCommandMap = ImmutableMap.<String, Command>builder()
                 .put(START.getCommandName(), new UserAuthorization(sendBotMessageService))
+                .put(DOWNLOAD.getCommandName(), new DownloadVideo(sendBotMessageService))
                 .build();
         noCommand = new NoCommand(sendBotMessageService);
     }

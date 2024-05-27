@@ -3,7 +3,6 @@ package com.ausweglosigkeit.command.commands;
 
 import com.ausweglosigkeit.button.ButtonAuthorizeYandex;
 import com.ausweglosigkeit.command.InformationAboutOfUser;
-import com.ausweglosigkeit.oidc.RegistrationData;
 import com.ausweglosigkeit.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;

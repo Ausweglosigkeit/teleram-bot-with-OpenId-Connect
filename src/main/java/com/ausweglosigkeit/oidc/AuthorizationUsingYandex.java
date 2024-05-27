@@ -15,12 +15,11 @@ import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.telegram.telegrambots.meta.api.objects.Update;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class AuthorizationUsingYandex {
@@ -83,6 +82,7 @@ public class AuthorizationUsingYandex {
     private JSONObject tokens;
     private JSONObject dataOfUser;
     private byte codeError = 0;
+
     public AuthorizationUsingYandex(String code) {
         try {
             tokens = AuthorizationUsingYandex.getOAuthToken(code);
@@ -92,10 +92,19 @@ public class AuthorizationUsingYandex {
             e.printStackTrace();
         }
     }
+
     public byte getCodeError() {
         return codeError;
     }
-    public JSONObject getDataOfUser() {
-        return dataOfUser;
+
+    public Map<String, String> getDataOfUser(Update update) {
+        Map<String, String> infoOfUser = new HashMap<>();
+        infoOfUser.put("chatId", update.getMessage().getChatId().toString());
+        infoOfUser.put("login", dataOfUser.get("login").toString());
+        infoOfUser.put("first_name", dataOfUser.get("first_name").toString());
+        infoOfUser.put("last_name", dataOfUser.get("last_name").toString());
+        infoOfUser.put("default_email", dataOfUser.get("default_email").toString());
+        infoOfUser.put("sex", dataOfUser.get("sex").toString());
+        return infoOfUser;
     }
 }

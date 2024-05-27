@@ -15,6 +15,7 @@ public class CommandContainer {
                 .put(START.getCommandName(), new StartCommand(sendBotMessageService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
+                .put(DOWNLOAD.getCommandName(), new DownloadCommand(sendBotMessageService))
                 .build();
         unknownCommand = new UnknownCommand(sendBotMessageService);
     }

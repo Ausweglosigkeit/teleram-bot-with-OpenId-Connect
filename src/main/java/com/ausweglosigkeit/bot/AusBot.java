@@ -34,9 +34,6 @@ public class AusBot extends TelegramLongPollingBot {
             } else {
                 lastCommandContainer.retrieveCommand(LAST_COMMAND).execute(update);
             }
-        } else if (update.hasCallbackQuery()) {
-            String commandIdentifier = update.getCallbackQuery().getData().split(" ")[1].toLowerCase();
-            lastCommandContainer.retrieveCommand(commandIdentifier).execute(update);
         }
     }
 
